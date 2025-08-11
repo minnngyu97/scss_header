@@ -1,0 +1,125 @@
+#hd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: #fff;
+  -webkit-transition: height 0.2s linear 0.1s, -webkit-transform 0.2s linear;
+  transition: height 0.2s linear 0.1s, -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear, height 0.2s linear 0.1s;
+  transition: transform 0.2s linear, height 0.2s linear 0.1s, -webkit-transform 0.2s linear;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &.hide {
+    transform: translateY(-100%);
+  }
+
+  .hd-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 95px;
+
+    .hd-logo {
+      svg {
+        width: 120px;
+        height: 31px;
+      }
+    }
+
+    .hd-nav {
+      .nav-list {
+        display: flex;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        height: 95px;
+        padding: 0 15px;
+        font-weight: 400;
+      }
+
+      .depth1-list,
+      .depth1-item {
+        position: relative;
+      }
+
+      .depth1-list {
+        position: absolute;
+        width: 100%;
+        justify-content: center;
+        top: 95px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        transition: 0.5s;
+      }
+
+      .depth1-item {
+        padding: 15px;
+      }
+
+      .sub {
+        display: none;
+
+        &.show {
+          display: flex;
+        }
+      }
+    }
+
+    .hd-sub-nav {
+      display: flex;
+      font-size: 12px;
+      align-items: center;
+
+      .sub-nav-area {
+        .sub-nav-list {
+          display: flex;
+        }
+
+        .sub-nav-item {
+          display: flex;
+          align-items: center;
+          padding: 12px;
+
+          svg {
+            width: 8px;
+            height: 8px;
+            margin-left: 4px;
+          }
+        }
+      }
+
+      .lang-area {
+        .lang-list {
+          display: flex;
+        }
+
+        .lang-item + .lang-item {
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 1px;
+            height: 10px;
+            margin-top: -5px;
+            background-color: #d6d7da;
+          }
+        }
+
+        .lang-btn {
+          padding: 16px;
+        }
+      }
+    }
+  }
+}
