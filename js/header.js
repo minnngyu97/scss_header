@@ -13,3 +13,14 @@ document.querySelectorAll('.nav-list li').forEach(function(item) {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.lang-btn-wrap').forEach(function (btnWrap) {
+    btnWrap.addEventListener('click', function (e) {
+      e.preventDefault();
+      document
+        .querySelector('.hd-group .lang-btn-wrap')
+        .classList.toggle('active');
+    });
+  });
+});

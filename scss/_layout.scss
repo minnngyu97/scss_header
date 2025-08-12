@@ -16,22 +16,25 @@
   }
 
   .hd-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    position: relative;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
     min-height: 95px;
 
     .hd-logo {
-      svg {
-        width: 120px;
-        height: 31px;
-      }
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
     }
 
     .hd-nav {
+      display: flex;
+      justify-content: center;
       .nav-list {
         display: flex;
       }
@@ -73,53 +76,61 @@
       }
     }
 
-    .hd-sub-nav {
-      display: flex;
-      font-size: 12px;
-      align-items: center;
-
-      .sub-nav-area {
-        .sub-nav-list {
-          display: flex;
+    .lang-btn-wrap {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px;
+      .lang-btn {
+        display: flex;
+        align-items: center;
+        svg {
+          width: 24px;
+          height: 24px;
         }
+      }
 
-        .sub-nav-item {
-          display: flex;
-          align-items: center;
-          padding: 12px;
+      .lang-txt {
+        display: inline-block;
+        margin: 0 5px;
+        font-size: 18px;
+        font-weight: 400;
+      }
 
-          svg {
-            width: 8px;
-            height: 8px;
-            margin-left: 4px;
+      .btn-list {
+        position: absolute;
+        right: 0;
+        top: 30px;
+        opacity: 0;
+        visibility: hidden;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid $color-desc;
+        border-radius: 6px;
+        transition: all 0.3s;
+
+        .btn-item:nth-child(1) {
+          a {
+            padding-top: 6px;
+            padding-bottom: 2px;
           }
         }
       }
 
-      .lang-area {
-        .lang-list {
-          display: flex;
+      &.active {
+        .btn-list {
+          visibility: visible;
+          opacity: 1;
         }
+      }
 
-        .lang-item + .lang-item {
-          position: relative;
-
-          &:after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 1px;
-            height: 10px;
-            margin-top: -5px;
-            background-color: #d6d7da;
-          }
-        }
-
-        .lang-btn {
-          padding: 16px;
-        }
+      .lang-link {
+        display: block;
+        padding: 2px 14px 4px 13px;
+        font-size: 18px;
+        font-weight: 400;
       }
     }
+
   }
 }

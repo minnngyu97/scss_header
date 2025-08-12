@@ -23,7 +23,11 @@
 
 @for $i from 12 through 56 {
   .fs-#{$i} {
-    font-size: clamp(#{$i}px, 1vw + #{$i / 10}px, #{$i * 1.2}px) !important;
+    font-size: clamp(
+      #{$i}px,
+      1vw + #{round($i / 10)}px,
+      #{round($i * 1.2)}px
+    ) !important;
   }
 }
 
