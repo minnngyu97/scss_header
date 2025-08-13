@@ -24,3 +24,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+document.querySelectorAll('.trigger').forEach(trigger => {
+  trigger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.hd-nav').classList.toggle('open');
+  });
+});
+
+document.querySelectorAll('section, .menu a').forEach(element => {
+  element.addEventListener('click', function() {
+    document.querySelector('.hd-nav').classList.remove('open');
+    document.querySelectorAll('.trigger').forEach(trigger => {
+      trigger.classList.remove('active');
+    });
+  });
+});
