@@ -352,6 +352,7 @@
 }
 @media (max-width: 992px) {
   #hd .hd-group .hd-nav {
+    justify-content: start;
     position: fixed;
     top: 0;
     right: 0;
@@ -372,21 +373,44 @@
     pointer-events: none;
   }
 }
-#hd .hd-group .hd-nav .nav-list {
+@media (max-width: 992px) {
+  #hd .hd-group .hd-nav .nav-area {
+    width: 100%;
+  }
+}
+#hd .hd-group .hd-nav .nav-area .nav-list {
   display: flex;
   color: #808080;
 }
-#hd .hd-group .hd-nav .nav-item {
+@media (max-width: 992px) {
+  #hd .hd-group .hd-nav .nav-area .nav-list {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+#hd .hd-group .hd-nav .nav-area .nav-item {
   display: flex;
   align-items: center;
   height: 95px;
   padding: 0 15px;
 }
-#hd .hd-group .hd-nav .depth1-list,
-#hd .hd-group .hd-nav .depth1-item {
+@media (max-width: 992px) {
+  #hd .hd-group .hd-nav .nav-area .nav-item {
+    flex-direction: column;
+    width: 100%;
+    height: unset;
+    padding: unset;
+  }
+  #hd .hd-group .hd-nav .nav-area .nav-item a {
+    width: 100%;
+    padding: 15px 20px;
+  }
+}
+#hd .hd-group .hd-nav .nav-area .depth1-list,
+#hd .hd-group .hd-nav .nav-area .depth1-item {
   position: relative;
 }
-#hd .hd-group .hd-nav .depth1-list {
+#hd .hd-group .hd-nav .nav-area .depth1-list {
   position: absolute;
   width: 100%;
   justify-content: center;
@@ -396,14 +420,22 @@
   background-color: #fff;
   transition: 0.5s;
 }
-#hd .hd-group .hd-nav .depth1-item {
+#hd .hd-group .hd-nav .nav-area .depth1-item {
   padding: 15px;
 }
-#hd .hd-group .hd-nav .sub {
+#hd .hd-group .hd-nav .nav-area .sub {
   display: none;
 }
-#hd .hd-group .hd-nav .sub.show {
+#hd .hd-group .hd-nav .nav-area .sub.show {
   display: flex;
+}
+@media (max-width: 992px) {
+  #hd .hd-group .hd-nav .nav-area .sub.show {
+    position: unset;
+    display: flex;
+    flex-direction: column;
+    transform: unset;
+  }
 }
 #hd .hd-group .hd-nav.open {
   -webkit-transform: translateX(0);
@@ -528,10 +560,15 @@
   top: 50%;
   transform: rotate(-45deg);
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   #hd .hd-group .hd-mo-nav-btn {
     display: none;
   }
+}
+
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
 }
 
 * {

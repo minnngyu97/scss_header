@@ -37,6 +37,7 @@
       display: flex;
       justify-content: center;
       @media(max-width: 992px){
+        justify-content: start;
         position: fixed;
         top: 0;
         right: 0;
@@ -57,45 +58,70 @@
         pointer-events: none;
       }
 
-      .nav-list {
-        display: flex;
-        color: $color-desc;
-      }
-
-      .nav-item {
-        display: flex;
-        align-items: center;
-        height: 95px;
-        padding: 0 15px;
-      }
-
-      .depth1-list,
-      .depth1-item {
-        position: relative;
-      }
-
-      .depth1-list {
-        position: absolute;
-        width: 100%;
-        justify-content: center;
-        top: 95px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #fff;
-        transition: 0.5s;
-      }
-
-      .depth1-item {
-        padding: 15px;
-      }
-
-      .sub {
-        display: none;
-
-        &.show {
+      .nav-area {
+        @media (max-width: 992px) {
+          width: 100%;
+        }
+        .nav-list {
           display: flex;
+          color: $color-desc;
+          @media (max-width: 992px) {
+            flex-direction: column;
+            align-items: start;
+          }
+        }
+  
+        .nav-item {
+          display: flex;
+          align-items: center;
+          height: 95px;
+          padding: 0 15px;
+          @media (max-width: 992px) {
+            flex-direction: column;
+            width: 100%;
+            height: unset;
+            padding: unset;
+            a {
+              width: 100%;
+              padding: 15px 20px;
+            }
+          }
+        }
+  
+        .depth1-list,
+        .depth1-item {
+          position: relative;
+        }
+  
+        .depth1-list {
+          position: absolute;
+          width: 100%;
+          justify-content: center;
+          top: 95px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #fff;
+          transition: 0.5s;
+        }
+  
+        .depth1-item {
+          padding: 15px;
+        }
+  
+        .sub {
+          display: none;
+          &.show {
+            display: flex;
+            @media (max-width: 992px) {
+              position: unset;
+              display: flex;
+              flex-direction: column;
+              transform: unset;
+            }
+          }
         }
       }
+
     }
 
     .hd-nav.open {
@@ -236,15 +262,15 @@
         top: 50%;
         transform: rotate(-45deg)
       }
-      @media (min-width:991px) {
+      @media (min-width:992px) {
         display: none;
       }
     }
 
-
-
-
-
-
   }
+}
+
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
 }
